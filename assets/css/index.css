@@ -31,8 +31,8 @@ nav {
 }
 ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 10px;
+    margin: 5px;
 }
 li {
     display: inline;
@@ -59,7 +59,7 @@ li {
     height: 25px; 
     background-image: url("../images/mode.png");
     background-size: cover;
-    opacity: 0.8; /* Adjust opacity to make it visible but subtle */
+    opacity: 0.9; /* Adjust opacity to make it visible but subtle */
     vertical-align: middle;
     float: right;
    
