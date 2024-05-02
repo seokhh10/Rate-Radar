@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -63,36 +67,53 @@ li {
 
 .container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
 }
+
+.left-column, .right-column {
+    flex: 1;
+    margin: 0 10px;
+    max-width: 45%;
+
+}
+
 .card {
-    width: 200px;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 15px;
+    margin-top: 20px;
     margin-bottom: 20px;
+    margin-left: 50px;
+    
 }
-.left-cards {
-    flex-grow: 1;
-    margin-right: 10px;
+
+.left-column .card:nth-child(odd) {
+    margin-right: 50%; /* Adjust spacing between cards */
 }
-.right-cards {
-    flex-grow: 1;
-    margin-left: 10px;
+
+.left-column .card:nth-child(even) {
+    margin-left: 48%; /* Adjust spacing between cards */
+}
+
+.right-column .card:nth-child(odd) {
+    margin-right: 50%; /* Adjust spacing between cards */
+}
+
+.right-column .card:nth-child(even) {
+    margin-left: 48%; /* Adjust spacing between cards */
 }
 
 footer {
     border-top: 5px solid rgb(47, 119, 179);
     background-color: white;
     color: black;
-    position: fixed;
-    padding: 10px 10px;
+    padding: 10px;
     margin-top: auto;
     width: 100%;
-    bottom: 0;
-    opacity: 1;
+
 }
 
 footer img {
@@ -115,4 +136,12 @@ footer nav {
 footer nav ul li {
     display: inline;
     margin-right: 100px;
+}
+
+@media (max-width: 768px) {
+    .left-column, .right-column {
+        flex-basis: calc(100% - 20px); /* Full width on smaller screens */
+        margin: 0; /* Remove horizontal margin on smaller screens */
+        max-width: 100%; /* Ensure full width on smaller screens */
+    }
 }
