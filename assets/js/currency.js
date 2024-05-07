@@ -19,7 +19,35 @@ function fetchCurrencyInfo(event) {
 
             results.innerHTML = '';
 
+         // Repeat rates data
+         for (const currencyCode in data.rates) {
+            const exchangeRate = data.rates[currencyCode];
+            
+            // Create card Element
+            const card = document.createElement('div');
+            const header = document.createElement('h2');
+            const price = document.createElement('div');
+        
+
+            // attributes of the card
+            card.setAttribute('class', 'card');
+            header.textContent = currencyCode;
+            price.textContent = `Exchange Rate: ${exchangeRate}`;
+
+            // Append elements to the card
+            card.appendChild(header);
+            card.appendChild(price);
+            
+
+            // Append the card to the results section
+            results.appendChild(card);
         }
+    })
+    .catch(function(error) {
+        console.error('Error:', error);
+        
+    });
+}
 
 function fetchButtonHandler(event) {
     event.preventDefault();
