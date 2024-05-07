@@ -52,7 +52,7 @@ function fetchCurrencyInfo() {
             // Display currency information
             const currencies = data.rates;
             const rightColumn = document.querySelector('.right-column');
-            console.log(data);  
+            console.log(data);
 
             for (const currency in currencies) {
                 const card = document.createElement('div');
