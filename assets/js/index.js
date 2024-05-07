@@ -39,3 +39,33 @@ function getGeckoApi() {
 }
 
 getGeckoApi();
+
+// Currency API start here
+
+function fetchCurrencyInfo() {
+    // const apiKey = 'd463c482a136446b91438de5e6d4f46c';
+    const apiUrl = 'https://api.currencyfreaks.com/v2.0/rates/latest?apikey=d463c482a136446b91438de5e6d4f46c&symbols=PKR,GBP,EUR,USD,MXN';
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Display currency information
+            const currencies = data.rates;
+            const rightColumn = document.querySelector('.right-column');
+            console.log(data);  
+
+            for (const currency in currencies) {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.innerHTML = `
+                    <h2>${currency}</h2>
+                    <p>${currencies[currency]}</p>
+                `;
+                rightColumn.appendChild(card);
+            }
+        })
+        .catch(error => console.error('Error fetching currency data:', error));
+}
+
+// Call the function to currency
+fetchCurrencyInfo();      
