@@ -15,6 +15,10 @@ function fetchCurrencyInfo(event) {
 
     fetch(requestUrl, options)
         .then(function (response) {
+            console.log(response.status)
+            if (response.status === 404) {
+                modal.style.display = "block";
+            }
             return response.json();
         })
         .then(function (data) {
