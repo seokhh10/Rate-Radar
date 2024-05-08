@@ -4,9 +4,6 @@ const currencyButton = document.querySelector('.toCurrency');
 const favoritesButton = document.querySelector('.toFavorites');
 
 
-
-
-
 cryptoButton.addEventListener("click", () => {
     location.href = "crypto.html";
 });
