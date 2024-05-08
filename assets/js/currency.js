@@ -1,6 +1,9 @@
 const textInput = document.getElementById('text-input');
 const fetchButton = document.getElementById('fetch-button');
 const results = document.getElementById('results')
+const modal = document.getElementById("myModal");
+const btn = document.getElementById("myBtn");
+const span = document.getElementsByClassName("close")[0];
 
 function fetchCurrencyInfo(event) {
     const options = {
@@ -54,4 +57,15 @@ function fetchButtonHandler(event) {
     fetchCurrencyInfo();
 }
 
+btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
 fetchButton.addEventListener('click', fetchButtonHandler);
