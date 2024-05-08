@@ -2,6 +2,10 @@ const textInput = document.getElementById('text-input');
 const fetchButton = document.getElementById('fetch-button');
 const results = document.getElementById('results')
 
+// Error Modal Elements
+const errorModal = document.getElementById("errorModal");
+const closeBtn = document.getElementById("closeBtn");
+
 function getGeckoApi(event) {
     const options = {
         method: 'GET',
@@ -12,6 +16,10 @@ function getGeckoApi(event) {
 
     fetch(requestUrl, options)
         .then(function (response) {
+            if (!response.ok) {
+                console.log('API request failed with status:', response.status);
+                errorModal.style.display = "block";
+            }
             return response.json();
         })
         .then(function (data) {
@@ -50,3 +58,7 @@ function fetchButtonHandler(event) {
 
 
 fetchButton.addEventListener('click', fetchButtonHandler);
+
+closeBtn.onclick = function () {
+    errorModal.style.display = "none";
+};
