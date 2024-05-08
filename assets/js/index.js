@@ -69,3 +69,5 @@ function fetchCurrencyInfo() {
 
 // Call the function to currency
 fetchCurrencyInfo();      
+
+

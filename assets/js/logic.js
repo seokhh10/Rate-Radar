@@ -1,3 +1,4 @@
+//index html
 const cryptoButton = document.querySelector('.toCrypto');
 const currencyButton = document.querySelector('.toCurrency');
 const favoritesButton = document.querySelector('.toFavorites');
@@ -17,3 +18,4 @@ currencyButton.addEventListener("click", () => {
 favoritesButton.addEventListener("click", () => {
     location.href = "favorites.html";
 });
+
