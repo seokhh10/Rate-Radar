@@ -9,17 +9,18 @@
 </head>
 <body>
     <header>
-        
-        <img src="./assets/images/bluelogo.png" alt="company logo" class="logo">
+        <a href="index.html">
+            <img src="./assets/images/bluelogo.png" alt="company logo" class="logo">
+        </a>
         <h1>Rate Radar</h1>
         <nav>
                 <ul>
                     <button class="toCrypto">Crypto</button>
                 <button class="toCurrency">Currency</button>
-                <button class="toFavorites">Favorites</button>>
+                <button class="toFavorites">Favorites</button>
                 </ul>
         </nav>
-        <button class="mode"></button>
+        <button class="mode-button"></button>
         
     </header>
     <h1>Currency</h1>
@@ -36,6 +37,17 @@
           <div id="results"></div>
           <h2>Results</h2>
         </div>
+        <!-- <button id="myBtn">Open Modal</button> -->
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Currency don't found...</p>
+    <P>Please try again.</P>
+  </div>
+
+</div>
     </main>
 
 
