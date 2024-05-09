@@ -63,6 +63,9 @@ main {
   text-decoration: none;
   cursor: pointer;
 }
+#myBtn {
+  display: none;
+}
 
 .card {
     margin: 0 0 20px 0;
