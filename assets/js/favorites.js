@@ -1,4 +1,5 @@
 const cryptoDiv = document.getElementById('crypto-div');
+const currencyDiv = document.getElementById('currency-div');
 
 function saveCoinsToStorage(favoriteCoins) {
     localStorage.setItem('favoriteCoins', JSON.stringify(favoriteCoins));
@@ -12,6 +13,20 @@ function readCoinsFromStorage() {
     }
 
     return favoriteCoins;
+}
+
+function readCurrenciesFromStorage() {
+    let favoriteCurrencies = JSON.parse(localStorage.getItem('favoriteCurrencies'));
+
+    if (!favoriteCurrencies) {
+        favoriteCurrencies = [];
+    }
+
+    return favoriteCurrencies;
+}
+
+function saveCurrenciesToStorage(favoriteCurrencies) {
+    localStorage.setItem('favoriteCurrencies', JSON.stringify(favoriteCurrencies));
 }
 
 function getGeckoApi() {
@@ -29,7 +44,6 @@ function getGeckoApi() {
             requestUrl += `,${coin.id}`;
         };
     };
-    console.log(requestUrl);
 
     fetch(requestUrl, options)
         .then(function (response) {
@@ -79,4 +93,88 @@ function getGeckoApi() {
         });
 }
 
+function fetchCurrencyInfo(event) {
+    const options = {
+        method: 'GET',
+        headers: { accept: 'application/json' }
+    };
+
+    let requestUrl = "https://api.currencyfreaks.com/v2.0/rates/latest?apikey=d463c482a136446b91438de5e6d4f46c&symbols=";
+    const favoriteCurrencies = readCurrenciesFromStorage();
+
+    for (currency of favoriteCurrencies) {
+        if (currency === favoriteCurrencies[0]) {
+            requestUrl += currency;
+        } else {
+            requestUrl += `,${currency}`;
+        }
+
+    }
+    //  local storage
+    // const storedData = localStorage.getItem(currencyName);
+    // if (storedData) {
+    //     displayCurrencyInfo(JSON.parse(storedData));
+    fetch(requestUrl, options)
+        .then(function (response) {
+            console.log(response.status)
+
+            if (response.status === 404) {
+                modal.style.display = "block";
+            }
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            // Save data to local storage
+            // localStorage.setItem(currencyName, JSON.stringify(data));
+            displayCurrencyInfo(data);
+        })
+        .catch(function (error) {
+            console.error('Error:', error);
+        });
+};
+
+function displayCurrencyInfo(data) {
+    // results.innerHTML = '';
+
+    // Repeat rates data
+    for (const currencyCode in data.rates) {
+        const exchangeRate = data.rates[currencyCode];
+
+        // card Element
+        const card = document.createElement('div');
+        const header = document.createElement('h2');
+        const price = document.createElement('div');
+        const removeBtn = document.createElement('button');
+
+        // attributes of the card
+        card.setAttribute('class', 'card');
+        header.textContent = currencyCode;
+        price.textContent = `Exchange Rate: ${exchangeRate}`;
+        removeBtn.textContent = 'Remove from favorites';
+        removeBtn.setAttribute('data-currency-code', currencyCode);
+        removeBtn.onclick = function () {
+            const currencyCode = this.getAttribute('data-currency-code');
+            const favoriteCurrencies = readCurrenciesFromStorage();
+
+            favoriteCurrencies.forEach((currency) => {
+                if (currencyCode === currency) {
+                    favoriteCurrencies.splice(favoriteCurrencies.indexOf(currency), 1);
+                }
+            });
+
+            saveCurrenciesToStorage(favoriteCurrencies);
+        };
+
+        // Append elements to the card
+        card.appendChild(header);
+        card.appendChild(price);
+        card.appendChild(removeBtn);
+        // Append the card to the currency section
+        currencyDiv.appendChild(card);
+    };
+};
+
 getGeckoApi();
+
+fetchCurrencyInfo();
