@@ -62,7 +62,7 @@ function getGeckoApi(event) {
 
             favoriteBtn.textContent = 'Add to favorites';
             favoriteBtn.onclick = function () {
-                const favoriteCoins = readCoinsFromStorage();
+                let favoriteCoins = readCoinsFromStorage();
                 favoriteCoins.push(coin);
                 saveCoinsToStorage(favoriteCoins);
             }

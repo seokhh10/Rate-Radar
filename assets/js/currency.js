@@ -5,10 +5,24 @@ const modal = document.getElementById("myModal");
 const btn = document.getElementById("myBtn");
 const span = document.getElementsByClassName("close")[0];
 
+function readCurrenciesFromStorage() {
+    let favoriteCurrencies = JSON.parse(localStorage.getItem('favoriteCurrencies'));
+
+    if (!favoriteCurrencies) {
+        favoriteCurrencies = [];
+    }
+
+    return favoriteCurrencies;
+}
+
+function saveCurrenciesToStorage(favoriteCurrencies) {
+    localStorage.setItem('favoriteCurrencies', JSON.stringify(favoriteCurrencies));
+}
+
 function fetchCurrencyInfo(event) {
     const options = {
         method: 'GET',
-        headers: { accept: 'application/json'}
+        headers: { accept: 'application/json' }
     };
     const currencyName = textInput.value;
     const requestUrl = `https://api.currencyfreaks.com/v2.0/rates/latest?apikey=d463c482a136446b91438de5e6d4f46c&symbols=${currencyName}`;
@@ -33,7 +47,7 @@ function fetchCurrencyInfo(event) {
                 localStorage.setItem(currencyName, JSON.stringify(data));
                 displayCurrencyInfo(data);
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 console.error('Error:', error);
             });
     }
@@ -45,23 +59,28 @@ function displayCurrencyInfo(data) {
     // Repeat rates data
     for (const currencyCode in data.rates) {
         const exchangeRate = data.rates[currencyCode];
-        
+
         // card Element
         const card = document.createElement('div');
         const header = document.createElement('h2');
         const price = document.createElement('div');
-        
+        const favoriteBtn = document.createElement('button');
 
         // attributes of the card
         card.setAttribute('class', 'card');
         header.textContent = currencyCode;
         price.textContent = `Exchange Rate: ${exchangeRate}`;
-        
+        favoriteBtn.textContent = 'Add to favorites';
+        favoriteBtn.onclick = function () {
+            let favoriteCurrencies = readCurrenciesFromStorage();
+            favoriteCurrencies.push(currencyCode);
+            saveCurrenciesToStorage(favoriteCurrencies);
+        }
 
         // Append elements to the card
         card.appendChild(header);
         card.appendChild(price);
-
+        card.appendChild(favoriteBtn);
         // Append the card to the results section
         results.appendChild(card);
     }
@@ -72,13 +91,13 @@ function fetchButtonHandler(event) {
     fetchCurrencyInfo();
 }
 
-btn.onclick = function() {
+btn.onclick = function () {
     modal.style.display = "block";
 }
-span.onclick = function() {
+span.onclick = function () {
     modal.style.display = "none";
 }
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
