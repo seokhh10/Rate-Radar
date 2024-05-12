@@ -17,23 +17,37 @@ function getGeckoApi() {
 
                 //Creating elements, card, header, img, and price
                 const card = document.createElement('div');
-                const header = document.createElement('h2');
+                const header = document.createElement('header');
+                const title = document.createElement('p');
+                const cardImg = document.createElement('div');
+                const figure = document.createElement('figure');
                 const img = document.createElement('img');
+                const content = document.createElement('div');
                 const price = document.createElement('div');
 
+                title.textContent = crypto.name;
                 card.setAttribute('class', 'card');
-                header.textContent = crypto.name;
+                header.setAttribute('class', 'card-header');
+                title.setAttribute('class', 'card-header-title');
+                cardImg.setAttribute('class', 'card-header-icon');
                 img.setAttribute('src', crypto.image);
-                img.setAttribute('class', 'crypto-image');
+                figure.setAttribute('class', 'image is-32x32');
+                content.setAttribute('class', 'card-content');
+                price.setAttribute('class', 'content');
                 price.textContent = `Price (USD): ${crypto.current_price.toLocaleString("en-US", {
                     style: "currency",
                     maximumFractionDigits: 10,
                     currency: "USD"
                 })}`;
 
+
+                figure.appendChild(img);
+                cardImg.appendChild(figure);
+                header.appendChild(cardImg);
+                header.appendChild(title);
+                content.appendChild(price);
                 card.appendChild(header);
-                card.appendChild(img);
-                card.appendChild(price);
+                card.appendChild(content);
                 cryptoColumn.appendChild(card);
             }
         });
@@ -69,6 +83,6 @@ function fetchCurrencyInfo() {
 }
 
 // Call the function to currency
-fetchCurrencyInfo();      
+fetchCurrencyInfo();
 
 
