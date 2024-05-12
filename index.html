@@ -28,8 +28,8 @@
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="./index.html">
-                    <img src="./assets/images/bluelogo.png" alt="company logo" class="logo">
-                    <h1>Rate Radar</h1>
+                    <img src="./assets/images/bluelogo-removebg.png" alt="company logo" class="logo">
+                    <h1>&nbsp;Rate Radar</h1>
                 </a>
 
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
@@ -44,15 +44,24 @@
             <div class="navbar-menu">
                 <div class="navbar-start">
                     <a class="navbar-item" href="./crypto.html">
-                        Crypto
+                        <span class="icon has-text-warning">
+                            <i class="fa-brands fa-bitcoin"></i>
+                        </span>
+                        <span>Crypto</span>
                     </a>
 
                     <a class="navbar-item" href="./currency.html">
-                        Currency
+                        <span class="icon has-text-success">
+                            <i class="fa-solid fa-dollar-sign"></i>
+                        </span>
+                        <span>Currency</span>
                     </a>
 
                     <a class="navbar-item" href="./favorites.html">
-                        Favorites
+                        <span class="icon has-text-warning">
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span>Favorites</span>
                     </a>
                 </div>
         </nav>
@@ -70,7 +79,7 @@
         </div>
     </main>
     <!--Footer section-->
-    <footer>
+    <!-- <footer>
         <img src="./assets/images/bluelogo.png" alt="company logo" class="logo">
         <p>Rate Radar provides a prices of the crypto market.<br>
             In addition to tracking price of Currencies. <br>
@@ -82,8 +91,45 @@
                 <li><a href="https://www.linkedin.com" target="_blank">Social</a></li>
             </ul>
         </nav>
-        <script src="./assets/js/index.js"></script>
-        <script src="./assets/js/logic.js"></script>
+    </footer> -->
+    <footer class="footer">
+        <div class="content columns has-text-centered is-centered is-vcentered">
+            <div class="column is-4">
+                <!-- <figure class="is-inline-block image is-32x32"><img src="./assets/images/bluelogo-removebg.png"
+                        alt="company logo" class="logo">
+                </figure>
+                <p class="is-inline-block">
+                    <strong>Rate Radar</strong> provides prices of the crypto market. In addition to tracking price
+                    of
+                    Currencies.
+                    Rate Radar links the best exchanges at the market.
+                </p> -->
+
+                <div class="columns is-vcentered is-centered">
+                    <div class="column is-one-quarter has-text-centered">
+                        <figure class="is-inline-block image is-64x64"><img src="./assets/images/bluelogo-removebg.png"
+                                alt="company logo" class="logo">
+                        </figure>
+                    </div>
+                    <div class="column">
+                        <strong>Rate Radar</strong> provides prices of the crypto market. In addition to tracking price
+                        of
+                        Currencies.
+                        Rate Radar links the best exchanges at the market.
+                    </div>
+                </div>
+            </div>
+            <div class="column is-4">
+                <a href="https://github.com/seokhh10/Rate-Radar" target="_blank">GitHub</a>
+            </div>
+            <div class="column is-4">
+                <a href="https://www.linkedin.com" target="_blank">Social</a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/d1bb3f06b9.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/index.js"></script>
+    <!-- <script src="./assets/js/logic.js"></script> -->
 </body>
 
 </html>

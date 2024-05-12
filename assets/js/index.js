@@ -35,7 +35,7 @@ function fetchCurrencyInfo() {
 
             for (const currency in currencies) {
                 const card = document.createElement('div');
-                const header = document.createElement('header');
+                const header = document.createElement('div');
                 const content = document.createElement('div');
                 card.classList.add('card');
                 header.classList.add('card-header');
@@ -59,7 +59,7 @@ function displayCrypto(crypto) {
 
     //Create html elements
     const card = document.createElement('div');
-    const header = document.createElement('header');
+    const header = document.createElement('div');
     const title = document.createElement('p');
     const cardImg = document.createElement('div');
     const figure = document.createElement('figure');
