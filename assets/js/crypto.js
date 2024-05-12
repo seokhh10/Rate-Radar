@@ -47,7 +47,8 @@ function getGeckoApi(event) {
             const price = document.createElement('div');
             const favoriteBtn = document.createElement('button')
 
-            card.setAttribute('class', 'card');
+            card.setAttribute('class', 'card is-success is-dark');
+            //card.classList.add('is-succes is-dark')
             header.textContent = data.name;
             img.setAttribute('src', data.image.small);
             price.textContent = `Price (USD): ${data.market_data.current_price.usd.toLocaleString("en-US", {

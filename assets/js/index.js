@@ -15,15 +15,16 @@ function getGeckoApi() {
             console.log(data);
             for (const crypto of data) {
 
-                // Creating elements, card, header, img, and price
+                //Creating elements, card, header, img, and price
                 const card = document.createElement('div');
                 const header = document.createElement('h2');
                 const img = document.createElement('img');
                 const price = document.createElement('div');
 
-                card.setAttribute('class', 'card left');
+                card.setAttribute('class', 'card');
                 header.textContent = crypto.name;
                 img.setAttribute('src', crypto.image);
+                img.setAttribute('class', 'crypto-image');
                 price.textContent = `Price (USD): ${crypto.current_price.toLocaleString("en-US", {
                     style: "currency",
                     maximumFractionDigits: 10,
