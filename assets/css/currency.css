@@ -20,14 +20,15 @@ h5,
 h6 {
   font-weight: 700;
   margin: 0;
-  color: var(--dark);
+  color: black;
   line-height: 1.25;
 }
 
 main {
   margin: 20px auto;
-  width: 94%;
+  width: 50%;
 }
+
 .modal {
   display: none; 
   position: fixed; 
@@ -69,7 +70,7 @@ main {
 
 .card {
     margin: 0 0 20px 0;
-    border: 3px solid blue;
+    border: 3px solid rgb(0, 0, 255);
     border-radius: red;
   }
 
@@ -90,8 +91,9 @@ main {
   }
 
   .btn:hover {
-    color: red;
-    background-color: blue;
+    color: white;
+    background-color: hsl(240, 98%, 23%);
+    border-radius: 10px;
     transform: translate(0, 0);
     box-shadow: 2px 2px black;
   }
