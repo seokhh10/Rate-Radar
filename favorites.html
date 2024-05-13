@@ -6,66 +6,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bulma links -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/favorites.css">
+    <!-- <link rel="stylesheet" href="./assets/css/favorites.css"> -->
     <link rel="stylesheet" href="./assets/css/index.css">
     <title>R💱R</title>
 </head>
 
-<body>
-    <header>
-
-        <a href="index.html">
-            <img src="./assets/images/bluelogo.png" alt="company logo" class="logo">
+<nav class="navbar is-size-4 p-3" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="./index.html">
+            <img src="./assets/images/bluelogo-removebg.png" alt="company logo" class="logo">
+            <h1>&nbsp;Rate Radar</h1>
         </a>
 
-        <h1>Rate Radar</h1>
-        <nav>
-            <ul>
-                <button class="button is-info is-inverted toCrypto">Crypto</button>
-                <button class="button is-info is-inverted toCurrency">Currency</button>
-                <button class="button is-info is-inverted toFavorites">Favorites</button>
-            </ul>
-        </nav>
-        <button class="mode-button"></button>
-
-    </header>
-    <main>
-        <h1>Favorites⭐</h1>
-        <section>
-            <h2>Crypto</h2>
-            <div id="crypto-div"></div>
-            <h2>Currency</h2>
-            <div id="currency-div"></div>
-        </section>
-    </main>
-
-
-
-
-
-
-
-    <!--Footer section-->
-
-    <footer>
-        <a href="index.html">
-            <img src="./assets/images/bluelogo.png" alt="company logo" class="logo">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
         </a>
-        <p>Rate Radar provides a prices of the crypto market.<br>
-            In addition to tracking price of Currencies. <br>
-            Rate Radar links the best exchanges at the market.</p>
+    </div>
 
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="./crypto.html">
+                <span class="icon has-text-warning">
+                    <i class="fa-brands fa-bitcoin"></i>
+                </span>
+                <span>&nbsp;Crypto</span>
+            </a>
 
-        <nav>
-            <ul>
-                <li><a href="https://github.com/seokhh10/Rate-Radar" target="_blank">GitHub</a></li>
-                <li><a href="https://www.linkedin.com" target="_blank">Social</a></li>
-            </ul>
-        </nav>
+            <a class="navbar-item" href="./currency.html">
+                <span class="icon has-text-success">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                </span>
+                <span>&nbsp;Currency</span>
+            </a>
 
-    </footer>
-    <script src="./assets/js/logic.js"></script>
-    <script src="./assets/js/favorites.js"></script>
+            <a class="navbar-item" href="./favorites.html">
+                <span class="icon has-text-warning">
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>&nbsp;Favorites</span>
+            </a>
+        </div>
+</nav>
+
+</header>
+<main class="block has-text-centered">
+    <h2 class="m-4 has-text-success is-size-4">Favorites</h2>
+    <div class="columns is-vcentered">
+        <div class="column container" id="crypto-column">
+            <p class="title is-3 has-text-centered">Crypto</p>
+        </div>
+        <div class="right-column column container" id="currency-column">
+            <p class="title is-3 has-text-centered">Currency</p>
+        </div>
+    </div>
+</main>
+<!--Footer section-->
+<!-- <footer>
+<img src="./assets/images/bluelogo.png" alt="company logo" class="logo">
+<p>Rate Radar provides a prices of the crypto market.<br>
+    In addition to tracking price of Currencies. <br>
+    Rate Radar links the best exchanges at the market.</p>
+
+<nav>
+    <ul>
+        <li><a href="https://github.com/seokhh10/Rate-Radar" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com" target="_blank">Social</a></li>
+    </ul>
+</nav>
+</footer> -->
+<footer class="footer">
+    <div class="content columns has-text-centered is-centered is-vcentered">
+        <div class="column is-4">
+            <!-- <figure class="is-inline-block image is-32x32"><img src="./assets/images/bluelogo-removebg.png"
+                alt="company logo" class="logo">
+        </figure>
+        <p class="is-inline-block">
+            <strong>Rate Radar</strong> provides prices of the crypto market. In addition to tracking price
+            of
+            Currencies.
+            Rate Radar links the best exchanges at the market.
+        </p> -->
+
+            <div class="columns is-vcentered is-centered">
+                <div class="column is-one-quarter has-text-centered">
+                    <figure class="is-inline-block image is-64x64"><img src="./assets/images/bluelogo-removebg.png"
+                            alt="company logo" class="logo">
+                    </figure>
+                </div>
+                <div class="column">
+                    <strong>Rate Radar</strong> provides prices of the crypto market. In addition to tracking price
+                    of
+                    Currencies.
+                    Rate Radar links the best exchanges at the market.
+                </div>
+            </div>
+        </div>
+        <div class="column is-4">
+            <a href="https://github.com/seokhh10/Rate-Radar" target="_blank">GitHub</a>
+        </div>
+        <div class="column is-4">
+            <a href="https://www.linkedin.com" target="_blank">Social</a>
+        </div>
+    </div>
+</footer>
+<script src="https://kit.fontawesome.com/d1bb3f06b9.js" crossorigin="anonymous"></script>
+<script src="./assets/js/favorites.js"></script>
+<!-- <script src="./assets/js/logic.js"></script> -->
 </body>
 
 </html>

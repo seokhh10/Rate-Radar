@@ -30,7 +30,7 @@ function fetchCurrencyInfo() {
         .then(data => {
             // Display currency information
             const currencies = data.rates;
-            const rightColumn = document.getElementById('currency-column');
+            const currencyColumn = document.getElementById('currency-column');
             console.log(data);
 
             for (const currency in currencies) {
@@ -48,7 +48,7 @@ function fetchCurrencyInfo() {
                     `;
                 card.appendChild(header);
                 card.appendChild(content);
-                rightColumn.appendChild(card);
+                currencyColumn.appendChild(card);
             }
         })
         .catch(error => console.error('Error fetching currency data:', error));
