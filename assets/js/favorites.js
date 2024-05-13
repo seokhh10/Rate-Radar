@@ -177,7 +177,7 @@ function displayCurrencyInfo(data) {
         footer.classList.add('card-footer');
 
         header.innerHTML = `
-                    <p class='card-header-title'>${currency}</p>
+                    <p class='card-header-title'>${currencyCode}</p>
                     `;
         content.innerHTML = `
                     <div class='content'>${exchangeRate}</div>

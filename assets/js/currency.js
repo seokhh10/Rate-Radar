@@ -28,29 +28,22 @@ function fetchCurrencyInfo(event) {
     const requestUrl = `https://api.currencyfreaks.com/v2.0/rates/latest?apikey=d463c482a136446b91438de5e6d4f46c&symbols=${currencyName}`;
 
     //  local storage
-    const storedData = localStorage.getItem(currencyName);
-    if (storedData) {
-        displayCurrencyInfo(JSON.parse(storedData));
-    } else {
-        fetch(requestUrl, options)
-            .then(function (response) {
-                console.log(response.status)
+    fetch(requestUrl, options)
+        .then(function (response) {
+            console.log(response.status)
 
-                if (response.status === 404) {
-                    modal.style.display = "block";
-                }
-                return response.json();
-            })
-            .then(function (data) {
-                console.log(data);
-                // Save data to local storage
-                localStorage.setItem(currencyName, JSON.stringify(data));
-                displayCurrencyInfo(data);
-            })
-            .catch(function (error) {
-                console.error('Error:', error);
-            });
-    }
+            if (response.status === 404) {
+                modal.setAttribute('class', 'modal is-active');
+            }
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            displayCurrencyInfo(data);
+        })
+        .catch(function (error) {
+            console.error('Error:', error);
+        });
 }
 
 function displayCurrencyInfo(data) {
@@ -60,30 +53,40 @@ function displayCurrencyInfo(data) {
     for (const currencyCode in data.rates) {
         const exchangeRate = data.rates[currencyCode];
 
-        // card Element
         const card = document.createElement('div');
-        const header = document.createElement('h2');
-        const price = document.createElement('div');
+        const header = document.createElement('div');
+        const content = document.createElement('div');
+        const footer = document.createElement('div');
         const favoriteBtn = document.createElement('button');
 
-        // attributes of the card
-        card.setAttribute('class', 'card');
-        header.textContent = currencyCode;
-        price.textContent = `Exchange Rate: ${exchangeRate}`;
-        favoriteBtn.textContent = 'Add to favorites';
+        card.classList.add('card');
+        header.classList.add('card-header');
+        content.classList.add('card-content');
+        footer.classList.add('card-footer');
+
+        header.innerHTML = `
+                    <p class='card-header-title'>${currencyCode}</p>
+                    `;
+        content.innerHTML = `
+                    <div class='content'>${exchangeRate}</div>
+                    `;
+        favoriteBtn.textContent = 'Add to Favorites';
+        favoriteBtn.setAttribute('data-currency-code', currencyCode);
+        favoriteBtn.setAttribute('class', 'card-footer-item button is-warning');
         favoriteBtn.onclick = function () {
             let favoriteCurrencies = readCurrenciesFromStorage();
             favoriteCurrencies.push(currencyCode);
             saveCurrenciesToStorage(favoriteCurrencies);
-        }
+        };
 
         // Append elements to the card
+        footer.appendChild(favoriteBtn);
         card.appendChild(header);
-        card.appendChild(price);
-        card.appendChild(favoriteBtn);
-        // Append the card to the results section
+        card.appendChild(content);
+        card.appendChild(footer);
+        // Append the card to the currency section
         results.appendChild(card);
-    }
+    };
 }
 
 function fetchButtonHandler(event) {
@@ -92,14 +95,12 @@ function fetchButtonHandler(event) {
 }
 
 btn.onclick = function () {
-    modal.style.display = "block";
+    modal.setAttribute('class', 'modal');
 }
-span.onclick = function () {
-    modal.style.display = "none";
-}
+
 window.onclick = function (event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+        modal.setAttribute('class', 'modal');
     }
 }
 fetchButton.addEventListener('click', fetchButtonHandler);
