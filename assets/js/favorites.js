@@ -39,9 +39,9 @@ function getGeckoApi() {
 
     for (coin of favoriteCoins) {
         if (coin === favoriteCoins[0]) {
-            requestUrl += coin.id;
+            requestUrl += coin;
         } else {
-            requestUrl += `,${coin.id}`;
+            requestUrl += `,${coin}`;
         };
     };
 
@@ -124,7 +124,7 @@ function displayCrypto(crypto) {
         const favoriteCoins = readCoinsFromStorage();
 
         favoriteCoins.forEach((coin) => {
-            if (coin.id === coinId) {
+            if (coin === coinId) {
                 favoriteCoins.splice(favoriteCoins.indexOf(coin), 1);
             }
         });

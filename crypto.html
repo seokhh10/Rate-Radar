@@ -6,70 +6,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bulma links -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/crypto.css">
+    <!-- <link rel="stylesheet" href="./assets/css/crypto.css"> -->
     <link rel="stylesheet" href="./assets/css/index.css">
     <title>R💱R</title>
 </head>
 
 <body>
     <header>
-        <a href="index.html">
-          <img src="./assets/images/bluelogo.png" alt="company logo" class="logo">
-        </a>
-        <h1>Rate Radar</h1>
-        <nav>
-            <ul>
-                <button class="button is-info is-inverted toCrypto">Crypto</button>
-                <button class="button is-info is-inverted toCurrency">Currency</button>
-                <button class="button is-info is-inverted toFavorites">Favorites</button>
-            </ul>
+        <nav class="navbar is-size-4 p-3" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="./index.html">
+                    <img src="./assets/images/bluelogo-removebg.png" alt="company logo" class="logo">
+                    <h1>&nbsp;Rate Radar</h1>
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="./crypto.html">
+                        <span class="icon has-text-warning">
+                            <i class="fa-brands fa-bitcoin"></i>
+                        </span>
+                        <span>&nbsp;Crypto</span>
+                    </a>
+
+                    <a class="navbar-item" href="./currency.html">
+                        <span class="icon has-text-success">
+                            <i class="fa-solid fa-dollar-sign"></i>
+                        </span>
+                        <span>&nbsp;Currency</span>
+                    </a>
+
+                    <a class="navbar-item" href="./favorites.html">
+                        <span class="icon has-text-warning">
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span>&nbsp;Favorites</span>
+                    </a>
+                </div>
         </nav>
-        <button class="mode-button"></button>
-
     </header>
-    <h1>Cryptos</h1>
-    <main>
-        <div class="card">
-            <h3 class="card-header text-uppercase">Search By Crypto</h3>
-            <form id="user-form" class="card-body">
-                <label class="form-label" for="text-input">Crypto</label>
-                <input name="text-input" id="text-input" type="text" autofocus="true" class="form-input" />
-                <button type="submit" class="btn" id="fetch-button">Get Crypto</button>
-            </form>
-        </div>
-
-        <div id="errorModal">
-            <div class="modal-content">
-                <p>Coin not found. Please enter a valid ID.</p>
-                <button id="closeBtn">Ok</button>
+    <main class="block">
+        <h1 class="title is-size-3 m-4 has-text-centered">Crypto</h1>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-header-title">Search By Crypto</h3>
+                </div>
+                <div class="card-content">
+                    <form id="user-form" class="content field">
+                        <p class="control">
+                            <input name="text-input" id="text-input" type="text" autofocus="true" class="input"
+                                placeholder="Crypto ID" />
+                        </p>
+                        <p class="control">
+                            <button type="submit" class="button is-success" id="fetch-button">Get
+                                Crypto</button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div id="results">
+                <h2 class="title is-size-3 has-text-centered">Results</h2>
             </div>
         </div>
-        <div id="results">
-            <h2>Results</h2>
+        <!-- <button id="myBtn">Open Modal</button> -->
+
+        <!-- Modal -->
+        <!-- <div id="myModal" class="modal">
+            <div class="modal-content">
+
+            </div>
+        </div> -->
+
+        <div id="errorModal" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <div class="modal-card-head">
+                    <p class="modal-card-title">Crypto not found</p>
+                    <button id="closeBtn" class="delete" aria-label="close"></button>
+                </div>
+                <div class="modal-card-body">
+                    Enter a valid crypto ID code or try a different crypto.
+                </div>
+            </div>
         </div>
     </main>
 
-
-
-
-
     <!--Footer section-->
-    <footer>
-        <img src="./assets/images/bluelogo.png" alt="company logo" class="logo">
-        <p>Rate Radar provides a prices of the crypto market.<br>
-            In addition to tracking price of Currencies. <br>
-            Rate Radar links the best exchanges at the market.</p>
-
-        <nav>
-            <ul>
-                <li><a href="https://github.com/seokhh10/Rate-Radar" target="_blank">GitHub</a></li>
-                <li><a href="https://www.linkedin.com" target="_blank">Social</a></li>
-            </ul>
-        </nav>
-
+    <footer class="footer">
+        <div class="content columns has-text-centered is-centered is-vcentered">
+            <div class="column is-4">
+                <div class="columns is-vcentered is-centered">
+                    <div class="column is-one-quarter has-text-centered">
+                        <figure class="is-inline-block image is-64x64"><img src="./assets/images/bluelogo-removebg.png"
+                                alt="company logo" class="logo">
+                        </figure>
+                    </div>
+                    <div class="column">
+                        <strong>Rate Radar</strong> provides prices of the crypto market. In addition to tracking price
+                        of
+                        Currencies.
+                        Rate Radar links the best exchanges at the market.
+                    </div>
+                </div>
+            </div>
+            <div class="column is-4">
+                <a href="https://github.com/seokhh10/Rate-Radar" target="_blank">GitHub</a>
+            </div>
+            <div class="column is-4">
+                <a href="https://www.linkedin.com" target="_blank">Social</a>
+            </div>
+        </div>
     </footer>
+    <script src="https://kit.fontawesome.com/d1bb3f06b9.js" crossorigin="anonymous"></script>
     <script src="./assets/js/crypto.js"></script>
-    <script src="./assets/js/logic.js"></script>
+    <!-- <script src="./assets/js/logic.js"></script> -->
 </body>
 
 </html>
