@@ -33,18 +33,21 @@ Rate Radar is a web platform that empowers users to compare exchange rates acros
 5. **Testing Phase:** Conduct thorough testing to identify and fix bugs. All team members participate in testing.
 6. **Deployment Phase:** Deploy the website to a hosting platform using GitHub Pages or similar.
 
+## Screeshots
+
+![Display Prices](/assets/images/Main.png "Main")
+![Crypto page](/assets/images/Crypto.png "Crypto")
+![Currency Page](/assets/images/currency.png "Currency")
+![Favorites](/assets/images/Favorites.png "Favorites")
+
 ## Contact Us
 
 Various ways to contact Rate💱Radar:
 - Email: ernesto.hidalgo.hdz@gmail.com
 - GitHub: https://github.com/seokhh10
-- Email: rodrigo_luuu@hotmail.com
-- GitHub: https://github.com/LolRB
 - Email: dvdfermiranda@yahoo.com.mx
 - GitHub: https://github.com/dvdfml
 
-
-
 ## Website
 
--  
+-  https://seokhh10.github.io/Rate-Radar/
